@@ -1,0 +1,25 @@
+{% extends "index.html" %}
+
+{% load staticfiles %}
+
+
+{%block content%}
+
+<div class="panel panel-default" align="center">
+  <div class="panel-heading"><h4>{{photo.owner.username}}</h4></div>
+  <div class="panel-body">
+    {% if photo.image.width > 800 %}
+    <p><img src = '{{photo.image.url}}' width='600' /> <br>
+      {% else %}
+      <p><img src = '{{photo.image.url}}' /> <br>
+        {% endif %}
+        {{photo.comment}}</p>
+        <p> 방 이름 : {{photo.room_name}}</p>
+        <p> 월 세 : {{photo.room_monthly}}</p>
+        <p> 주인 번호 : {{photo.room_phone}}</p>
+    </div>
+  </div>
+
+<a href="{% url 'jejudaum:room_list'%}">리스트로 가기</a>
+
+{%endblock content%}

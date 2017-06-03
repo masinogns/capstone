@@ -1,0 +1,21 @@
+{% extends "index.html" %}
+
+{% block content %}
+<h1>111</h1>
+
+<ul>
+    {% for room in object_list %}
+
+    <li>
+      <a href="{%url 'jejudaum:room_detail' pk=room.pk%}">{{ room.rome_name }}</a>
+      <div class="">
+        <ul>
+          <li><a href="{% url 'jejudaum:room_edit' pk=room.pk %}">Update</a></li>
+          <li><a href="{% url 'jejudaum:room_delete' pk=room.pk %}">Delete</a></li>
+        </ul>
+      </div>
+    </li>
+    {% endfor %}
+
+</ul>
+{% endblock %}

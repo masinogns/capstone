@@ -1,0 +1,7 @@
+.navbar-inverse .navbar-nav>.login-hover>a:hover{
+  color: red;
+}
+
+p.index {
+  font-size: 40px;
+}

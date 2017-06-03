@@ -1,0 +1,42 @@
+{% extends "index.html" %}
+
+
+{% block content %}
+
+<p> <a class="btn btn-primary" href="{% url 'menza:upload'%}">업로드</a></p>
+
+  {% for photo in object_list %}
+  <div class="panel panel-default" align="center">
+    <div class="panel-heading"><h4><a href="{% url 'menza:detail' pk=photo.pk%}">{{photo.owner.username}}</a></h4></div>
+    <div class="panel-body">
+      {% if photo.image.width > 800 %}
+      <p><img src = '{{photo.image.url}}' width='600' /> <br>
+        {% else %}
+        <p><img src = '{{photo.image.url}}' /> <br>
+          {% endif %}
+          {{photo.comment}}</p>
+      </div>
+    </div>
+    {% endfor %}
+
+
+    <!-- pagenation nav -->
+    {% if is_paginated %}
+    <nav aria-label="...">
+        <ul class="pager">
+          {% if page_obj.has_previous %}
+          <li><a href="{%url 'menza:list'%}?page={{ page_obj.previous_page_number }}">이전</a></li>
+          {% endif %}
+          <li> <a href="#">페이지 {{ page_obj.number }} / {{ page_obj.paginator.num_pages }} </a></li>
+          {% if page_obj.has_next %}
+          <li>
+            <a href="{%url 'menza:list'%}?page={{ page_obj.next_page_number }}">다음</a>
+          </li>
+          {% endif %}
+        </ul>
+    </nav>
+    {% endif %}
+
+
+
+{% endblock %}
