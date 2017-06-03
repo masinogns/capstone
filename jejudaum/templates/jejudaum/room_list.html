@@ -14,6 +14,8 @@
     <li>
       <a href="{%url 'jejudaum:room_detail' pk=room.pk%}">{{ room.title}}</a>
     </li>
+    <li>{{room.owner}}</li>
+    <li>{{room.create_date}}</li>
     {% endfor %}
 </ul>
 
