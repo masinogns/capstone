@@ -1,0 +1,30 @@
+#content{
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column;
+}
+
+.log-in-box{
+  padding: 20px;
+  border: 1px solid #e1e1e1;
+  border-radius: 5px;
+}
+
+.submit-row{
+  display: flex;
+  justify-content: center;
+  padding-top: 10px;
+  padding-bottom: 5px;
+}
+
+.form-row{
+  display: flex;
+  justify-content:space-between;
+  padding-bottom: 10px;
+}
+
+.form-row input[type="text"], textarea{
+  background-color : #d1d1d1 !important;
+}
