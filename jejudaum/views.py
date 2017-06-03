@@ -7,13 +7,14 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.core.urlresolvers import reverse_lazy
 from django.contrib.auth.decorators import login_required
 
-from .models import Room_info, Option_info, Address
+from .models import Room_info
 
 class IndexView(TemplateView):
     template_name = 'jejudaum/index.html'
 
 class RoomList(ListView):
     model = Room_info
+    paginate_by = 6
     template_name = 'jejudaum/room_list.html'
 
 class RoomDetail(DetailView):
@@ -23,8 +24,7 @@ class RoomDetail(DetailView):
 class RoomCreate(CreateView):
     template_name = 'jejudaum/room_new.html'
     model = Room_info
-    fields = ['owner_pho_num', 'deposit', 'monthly', 'manage_money', 'rome_name',
-    'rome_area', 'total_floor', 'rome_floor', 'detail_address']
+    fields = ['title', 'content']
     success_url = reverse_lazy('jejudaum:room_list')
 
     def form_valid(self, form):
@@ -40,8 +40,7 @@ class RoomChangeList(ListView):
 class RoomUpdate(UpdateView):
     template_name = 'jejudaum/room_new.html'
     model = Room_info
-    fields = ['owner_pho_num', 'deposit', 'monthly', 'manage_money', 'rome_name',
-    'rome_area', 'total_floor', 'rome_floor', 'detail_address']
+    fields = ['title', 'content']
     success_url = reverse_lazy('jejudaum:room_list')
 
 class RoomDelete(DeleteView):

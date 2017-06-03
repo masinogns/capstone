@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <title>jejudaum</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="{% static 'css/reset.css' %}">
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -14,12 +14,12 @@
     <link rel="stylesheet" href="{% static 'css/index.css'%}">
     <style media="screen">
 
-      .main-photo{
-        height: 350px;
-        background: url({% static 'img/testmain5.jpg' %});
-        background-repeat: no-repeat;
-        background-size: 100% 350px;
-      }
+        .main-photo {
+            height: 350px;
+            background: url({% static 'img/testmain5.jpg' %});
+            background-repeat: no-repeat;
+            background-size: 100% 350px;
+        }
 
     </style>
 </head>
@@ -35,8 +35,9 @@
 
               {% if user.is_active %}
               <ul class="nav navbar-nav navbar-right">
-                  <li class="login-hover"><a href="#">{% firstof user.get_short_name user.get_username %}</a></li>
-                  <li class="login-hover"><a href="{% url 'jejudaum:room_change'%}">내 게시글</a></li>
+                  <li><a href="#">{% firstof user.get_short_name user.get_username %}</a></li>
+                  <li><a href="{% url 'jejudaum:room_change'%}">내 게시글</a> /</li>
+                  <li><a href="{% url 'menza:my_list'%}">내 사진</a> /</li>
                   <li class="login-hover"><a href="{% url 'password_change' %}"><span class="glyphicon glyphicon-log-in"></span> 비밀번호 변경</a></li>
                   <li class="login-hover"><a href="{% url 'logout'%}"><span class="glyphicon glyphicon-pencil"></span> 로그아웃</a></li>
                   <li class="login-hover"><a href="#"><span class="glyphicon glyphicon-home"></span> 고객센터</a></li>
@@ -58,6 +59,7 @@
   </div>
 
   {% block content %}
+  <p>홈페이지</p>
   {% endblock %}
 
   <footer class="footer">
@@ -139,6 +141,11 @@
 
   </div>
 </div>
+
+
+
+
+
 
 </body>
 </html>

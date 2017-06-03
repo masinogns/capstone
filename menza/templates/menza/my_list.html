@@ -17,23 +17,31 @@
           {% endif %}
           {{photo.comment}}</p>
       </div>
+
+        <div class="">
+          <ul>
+            <li><a href="{% url 'menza:update' pk=photo.pk %}">Update</a></li>
+            <li><a href="{% url 'menza:delete' pk=photo.pk %}">Delete</a></li>
+          </ul>
+        </div>
     </div>
       {% endfor %}
       {% else %}
       <h4>아직 사진이 없네요. 첫번째 사진을 업로드하세요!</h4>
       {% endif %}
 
+
     <!-- pagenation nav -->
     {% if is_paginated %}
     <nav aria-label="...">
         <ul class="pager">
           {% if page_obj.has_previous %}
-          <li><a href="{%url 'menza:index'%}?page={{ page_obj.previous_page_number }}">이전</a></li>
+          <li><a href="{%url 'menza:list'%}?page={{ page_obj.previous_page_number }}">이전</a></li>
           {% endif %}
           <li> <a href="#">페이지 {{ page_obj.number }} / {{ page_obj.paginator.num_pages }} </a></li>
           {% if page_obj.has_next %}
           <li>
-            <a href="{%url 'menza:index'%}?page={{ page_obj.next_page_number }}">다음</a>
+            <a href="{%url 'menza:list'%}?page={{ page_obj.next_page_number }}">다음</a>
           </li>
           {% endif %}
         </ul>

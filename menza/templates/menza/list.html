@@ -1,28 +1,40 @@
 {% extends "index.html" %}
-
+{% load staticfiles %}
 
 {% block content %}
+<link rel="stylesheet" href="{% static 'css/list.css' %}">
+<div class="page-header">
+  <div class="row">
+    <h3 class="col-md-10 page-title">리스트</h3>
+    <div class="col-md-2 list-btn">
+      <p class="page-upload-btn"><a class="btn btn-primary" href="{% url 'menza:upload'%}">업로드</a></p>
+      <p class="page-more-info"><a href="#" class=""><span class="glyphicon glyphicon-plus"></span>더보기</a></p>
+    </div>
+  </div>
 
-<p> <a class="btn btn-primary" href="{% url 'menza:upload'%}">업로드</a></p>
+</div>
 
+<div class="room-box">
   {% for photo in object_list %}
   <div class="panel panel-default" align="center">
     <div class="panel-heading"><h4><a href="{% url 'menza:detail' pk=photo.pk%}">{{photo.owner.username}}</a></h4></div>
     <div class="panel-body">
       {% if photo.image.width > 800 %}
-      <p><img src = '{{photo.image.url}}' width='600' /> <br>
+      <p><img src = '{{photo.image.url}}' />
         {% else %}
-        <p><img src = '{{photo.image.url}}' /> <br>
+        <p><img src = '{{photo.image.url}}' />
           {% endif %}
           {{photo.comment}}</p>
       </div>
     </div>
     {% endfor %}
+</div>
+
 
 
     <!-- pagenation nav -->
     {% if is_paginated %}
-    <nav aria-label="...">
+    <nav aria-label="..." class="page-nation-center">
         <ul class="pager">
           {% if page_obj.has_previous %}
           <li><a href="{%url 'menza:list'%}?page={{ page_obj.previous_page_number }}">이전</a></li>

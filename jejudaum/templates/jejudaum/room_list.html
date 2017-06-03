@@ -7,16 +7,36 @@
 
 <h1>제주대학교 정문 후문 원룸 리스트입니다.</h1>
 <h1>리스트</h1>
+<a href="{% url 'jejudaum:room_new' %}">추가하기</a>
 
 <ul>
     {% for room in object_list %}
     <li>
-      <a href="{%url 'jejudaum:room_detail' pk=room.pk%}">{{ room.rome_name }}</a>
+      <a href="{%url 'jejudaum:room_detail' pk=room.pk%}">{{ room.title}}</a>
     </li>
     {% endfor %}
 </ul>
 
-<a href="{% url 'jejudaum:room_new' %}">추가하기</a>
+
+
+  <!-- pagenation nav -->
+  {% if is_paginated %}
+  <nav aria-label="...">
+      <ul class="pager">
+        {% if page_obj.has_previous %}
+        <li><a href="{%url 'jejudaum:room_list'%}?page={{ page_obj.previous_page_number }}">이전</a></li>
+        {% endif %}
+        <li> <a href="#">페이지 {{ page_obj.number }} / {{ page_obj.paginator.num_pages }} </a></li>
+        {% if page_obj.has_next %}
+        <li>
+          <a href="{%url 'jejudaum:room_list'%}?page={{ page_obj.next_page_number }}">다음</a>
+        </li>
+        {% endif %}
+      </ul>
+  </nav>
+  {% endif %}
+
+
 
 
 {%endblock content%}
