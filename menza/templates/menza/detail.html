@@ -42,14 +42,55 @@
     height: 100%;
   }
 
-
-
   .text-box li{
     display: flex;
     align-items: center;
-    height: 25%;
+    height: 20%;
     font-family: 'Jeju Gothic', serif;
     font-size: 20px;
+  }
+
+  .option-box{
+    display: flex;
+    flex-wrap: wrap;
+    height: 250px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    border: 1px solid #e1e1e1;
+    font-family: 'Jeju Gothic', serif;
+  }
+
+  .option-box h3{
+    background-color: rgb(241,196,15);
+    width: 20%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .option-box ul{
+    display: flex;
+    flex-wrap: wrap;
+    width: 80%;
+    font-size: 20px;
+  }
+
+  .option-box ul li{
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  input[type=checkbox]{
+    margin: 0;
+    margin-left: 10px;
+  }
+
+  .my-check-box{
+    display: inline-block;
+    zoom : 1.5;
   }
 </style>
 <div class="container">
@@ -66,26 +107,72 @@
         <li> 방 이름 : {{photo.room_name}} </li>
         <li> 월 세   : {{photo.monthly}} </li>
         <li> 연락처  : {{photo.room_phone}} </li>
+        <li> 주소 : {{photo.city}} {{photo.town}} {{photo.village}}</li>
       </ul>
   </div>
+  <div class="option-box">
 
-  <p></p>
+    <h3>옵션</h3>
+    <ul>
+      {% if photo.tv %}
+        <li>tv : <input type="checkbox" class="my-check-box" checked></li>
+      {% else %}
+        <li>tv : <input type="checkbox" class="my-check-box" ></li>
+      {% endif %}
 
-      <p>tv : {{photo.tv}}</p>
-      <p>City : "{{photo.city}}"</p>
+      {% if photo.parking %}
+        <li>파킹 : <input type="checkbox" class="my-check-box" checked></li>
+      {% else %}
+        <li>파킹 : <input type="checkbox" class="my-check-box" ></li>
+      {% endif %}
 
-  <p>파킹:{{photo.parking}}</p>
-  <p>엘레베이터:{{photo.elevator}}</p>
-  <p>동물:{{photo.animal}}</p>
-  <p>에어컨 : {{photo.aricon }}</p>
-  <p>{{photo.washer}}</p>
-  <p>{{photo.freezer}}</p>
-  <p>{{photo.tv}}</p>
-  <p>{{photo.doorlock}}</p>
-  <p>{{photo.bed}}</p>
-  <p>{{photo.city}}</p>
-  <p>{{photo.town}}</p>
-  <p>{{photo.village}}</p>
+      {% if photo.elevator %}
+        <li>엘레베이터 : <input type="checkbox" class="my-check-box" checked></li>
+      {% else %}
+        <li>엘레베이터 : <input type="checkbox" class="my-check-box" ></li>
+      {% endif %}
+
+      {% if photo.animal %}
+        <li>동물 : <input type="checkbox" class="my-check-box" checked></li>
+      {% else %}
+        <li>동물 : <input type="checkbox" class="my-check-box" ></li>
+      {% endif %}
+
+      {% if photo.aricon %}
+        <li>에어컨 : <input type="checkbox" class="my-check-box" checked></li>
+      {% else %}
+        <li>에어컨 : <input type="checkbox" class="my-check-box" ></li>
+      {% endif %}
+
+      {% if photo.washer %}
+        <li>세탁기 : <input type="checkbox" class="my-check-box" checked></li>
+      {% else %}
+        <li>세탁기 : <input type="checkbox" class="my-check-box" ></li>
+      {% endif %}
+
+      {% if photo.freezer %}
+        <li>냉장고 : <input type="checkbox" class="my-check-box" checked></li>
+      {% else %}
+        <li>냉장고 : <input type="checkbox" class="my-check-box" ></li>
+      {% endif %}
+
+      {% if photo.doorlock %}
+        <li>도어락 : <input type="checkbox" class="my-check-box" checked></li>
+      {% else %}
+        <li>도어락 : <input type="checkbox" class="my-check-box" ></li>
+      {% endif %}
+
+      {% if photo.bed %}
+        <li>침대 : <input type="checkbox" class="my-check-box" checked></li>
+      {% else %}
+        <li>침대 : <input type="checkbox" class="my-check-box" ></li>
+      {% endif %}
+
+    </ul>
+  </div>
+
+
+
   </div>
 </div>
 
@@ -93,6 +180,12 @@
 
 {% include "comments.html" %}
 </div>
+<script type="text/javascript">
+  var disAlbleCheckBox = document.querySelectorAll('.my-check-box');
 
+  for(i = 0; i < disAlbleCheckBox.length; i++){
+    disAlbleCheckBox[i].disabled = true;
+  }
+</script>
 
 {%endblock content%}
