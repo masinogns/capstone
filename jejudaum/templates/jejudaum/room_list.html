@@ -11,38 +11,47 @@
     <h1 class="comunity-title">커뮤니티 리스트</h1>
     <a href="{% url 'jejudaum:room_new' %}" class="btn btn-default add-btn">추가하기</a>
   </div>
+<div class="list-content">
+  <div class="comunity-list-header">
+    <ul class="row">
+      <li class="col-md-8 comunity-content">제  목</li>
+      <li class="col-md-2 comunity-content">작성자</li>
+      <li class="col-md-2 comunity-content">날  짜</li>
+    </ul>
+  </div>
+
+  {% for room in object_list %}
+  <div class="comunity-box">
+      <a href="{%url 'jejudaum:room_detail' pk=room.pk%}" class="comunity-list">
+        <ul class="row">
+          <li class="col-md-8 comunity-content">{{ room.title}}</li>
+          <li class="col-md-2 comunity-content">{{room.owner}}</li>
+          <li class="col-md-2 comunity-content">{{room.create_date}}</li>
+        </ul>
+      </a>
+  </div>
+  {% endfor %}
+
+<!-- pagenation nav -->
 
 </div>
+{% if is_paginated %}
+<nav aria-label="...">
+    <ul class="pager">
+      {% if page_obj.has_previous %}
+      <li><a href="{%url 'jejudaum:room_list'%}?page={{ page_obj.previous_page_number }}">이전</a></li>
+      {% endif %}
+      <li> <a href="#">페이지 {{ page_obj.number }} / {{ page_obj.paginator.num_pages }} </a></li>
+      {% if page_obj.has_next %}
+      <li>
+        <a href="{%url 'jejudaum:room_list'%}?page={{ page_obj.next_page_number }}">다음</a>
+      </li>
+      {% endif %}
+    </ul>
+</nav>
+{% endif %}
+</div>
 
-
-    {% for room in object_list %}
-    <div class="comunity-box">
-        <a href="{%url 'jejudaum:room_detail' pk=room.pk%}" class="comunity-list">
-          <ul class="row">
-            <li class="col-md-8 comunity-content">{{ room.title}}</li>
-            <li class="col-md-2 comunity-content">{{room.owner}}</li>
-            <li class="col-md-2 comunity-content">{{room.create_date}}</li>
-          </ul>
-        </a>
-    </div>
-    {% endfor %}
-
-  <!-- pagenation nav -->
-  {% if is_paginated %}
-  <nav aria-label="...">
-      <ul class="pager">
-        {% if page_obj.has_previous %}
-        <li><a href="{%url 'jejudaum:room_list'%}?page={{ page_obj.previous_page_number }}">이전</a></li>
-        {% endif %}
-        <li> <a href="#">페이지 {{ page_obj.number }} / {{ page_obj.paginator.num_pages }} </a></li>
-        {% if page_obj.has_next %}
-        <li>
-          <a href="{%url 'jejudaum:room_list'%}?page={{ page_obj.next_page_number }}">다음</a>
-        </li>
-        {% endif %}
-      </ul>
-  </nav>
-  {% endif %}
 
 
 

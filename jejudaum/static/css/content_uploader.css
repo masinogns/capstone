@@ -1,0 +1,27 @@
+h3{
+  font-family: 'Jeju Gothic', serif;
+}
+
+.input-box input{
+  padding: 5px;
+  width: 100%;
+  border: 1px solid #e1e1e1;
+  border-radius: 5px;
+  height: 30px;
+}
+
+.content textarea{
+  padding: 5px;
+  width : 100%;
+  border: 1px solid #e1e1e1;
+  border-radius: 5px;
+}
+
+.submit-box{
+  margin-top: 15px;
+}
+
+.submit-box input{
+  display: block;
+  margin-left: auto;
+}

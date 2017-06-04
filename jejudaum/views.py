@@ -14,7 +14,7 @@ class IndexView(TemplateView):
 
 class RoomList(ListView):
     model = Room_info
-    paginate_by = 6
+    paginate_by = 10
     template_name = 'jejudaum/room_list.html'
 
 class RoomDetail(DetailView):
