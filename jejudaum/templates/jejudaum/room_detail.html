@@ -2,18 +2,26 @@
 
 {% load staticfiles %}
 
-
 {%block content%}
+<link rel="stylesheet" href="{% static 'css/comunity_detail.css' %}">
 
-<h1>제주대학교 정문 후문 원룸 리스트입니다.</h1>
-<h1>자세히 sss보기</h1>
+<div class="container">
+  <div class="page-header">
+    <div class="info">
+      <p class="title">제목 : {{object.title}}</p>
+      <p class="writer">작성자 : {{object.owner}}</p>
+      <p class="date">날짜 : {{object.create_date}}</p>
+    </div>
+  </div>
+  <div class="content-box">
+    <p>{{object.content}}</p>
+  </div>
 
-<h1>{{object.title}}</h1>
-<h2>{{object.content}}</h2>
-<li>{{object.owner}}</li>
-<li>{{object.create_date}}</li>
+  <a href="{% url 'jejudaum:room_list'%}" class="btn btn-default">리스트로 가기</a>
+</div>
 
-<a href="{% url 'jejudaum:room_list'%}">리스트로 가기</a>
+
+
 
 {% include "comments.html" %}
 

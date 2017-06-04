@@ -1,0 +1,23 @@
+.info{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.info .title{
+  width: 60%;
+  text-align: center;
+}
+
+.info .writer{
+  width: 20%;
+  text-align: center;
+}
+
+.info .date{
+  width: 20%;
+  text-align: center;
+}
+
+.content-box{
+  margin: 50px 0;
+}
