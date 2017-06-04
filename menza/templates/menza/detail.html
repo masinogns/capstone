@@ -13,13 +13,31 @@
       {% else %}
       <p><img src = '{{photo.image.url}}' /> <br>
         {% endif %}
+
         {{photo.comment}}</p>
         <p> 방 이름 : {{photo.room_name}}</p>
         <p> 월 세 : {{photo.room_monthly}}</p>
         <p> 주인 번호 : {{photo.room_phone}}</p>
+        <p>tv : {{photo.tv}}</p>
+        <p>City : "{{photo.city}}"</p>
+
+    <p>파킹:{{photo.parking}}</p>
+    <p>엘레베이터:{{photo.elevator}}</p>
+    <p>동물:{{photo.animal}}</p>
+    <p>에어컨 : {{photo.aricon }}</p>
+    <p>{{photo.washer}}</p>
+    <p>{{photo.freezer}}</p>
+    <p>{{photo.tv}}</p>
+    <p>{{photo.doorlock}}</p>
+    <p>{{photo.bed}}</p>
+    <p>{{photo.city}}</p>
+    <p>{{photo.town}}</p>
+    <p>{{photo.village}}</p>
     </div>
   </div>
 
 <a href="{% url 'jejudaum:room_list'%}">리스트로 가기</a>
+
+{% include "comments.html" %}
 
 {%endblock content%}

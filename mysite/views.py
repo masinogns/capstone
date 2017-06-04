@@ -8,6 +8,7 @@ from django.contrib.auth.forms import UserCreationForm
 
 from django.contrib.auth.decorators import login_required
 # from .forms import CreateUserForm
+from .forms import *
 
 class IndexView(TemplateView):
     template_name = 'index.html'
@@ -15,7 +16,7 @@ class IndexView(TemplateView):
 #--- User Creation
 class UserCreateView(CreateView):
     template_name = 'registration/register.html'
-    form_class = UserCreationForm
+    form_class = CreateUserForm
     success_url = reverse_lazy('register_done')
 
 class UserCreateDoneTV(TemplateView):

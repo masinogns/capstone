@@ -70,9 +70,15 @@
         <fieldset class="aligned">
 
             <div class="form-row">
+              {{form.email.label_tag}} {{form.email}}
+            </div>
+            <div class="form-row">
                 {{ form.username.label_tag }} {{ form.username }}
             </div>
 
+            <div class="form-row">
+              {{form.phone_number.label_tag}}{{form.phone_number}}
+            </div>
             <div class="form-row">
                 {{ form.password1.label_tag }} {{ form.password1 }}
             </div>

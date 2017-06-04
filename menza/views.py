@@ -6,7 +6,7 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .forms import UploadForm
 from django.contrib.auth.decorators import login_required
 from django.core.urlresolvers import reverse_lazy
-from .models import Photo
+from .models import *
 
 @login_required
 def upload(request):
@@ -38,6 +38,7 @@ def edit(request, pk):
 class ContentCreate(CreateView):
     model = Photo
     fields = ['image' , 'thumnail_image' , 'room_phone' , 'room_name' , 'room_monthly' , 'comment']
+
     success_url = reverse_lazy('menza:list')
 
     def form_valid(self, form):
