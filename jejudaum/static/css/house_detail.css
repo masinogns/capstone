@@ -1,12 +1,13 @@
-.main-info{
-  display: flex;
-  height: 350px;
-  flex-wrap: wrap;
-}
 
 
 
   @media screen and (max-width: 768px) {
+    .main-info{
+      display: flex;
+      height: 400px;
+      flex-wrap: wrap;
+    }
+
     .img-box{
       width: 100%;
     }
@@ -50,6 +51,12 @@
     }
   }
   @media screen and (min-width: 760px){
+    .main-info{
+      display: flex;
+      height: 350px;
+      flex-wrap: wrap;
+    }
+
     .img-box{
       width: 50%;
     }
