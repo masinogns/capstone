@@ -4,40 +4,79 @@
 
 
 {%block content%}
+<style media="screen">
+  .main-info{
+    display: flex;
+    height: 350px;
+    flex-wrap: wrap;
+  }
 
-<div class="panel panel-default" align="center">
-  <div class="panel-heading"><h4>{{photo.owner.username}}</h4></div>
-  <div class="panel-body">
-    {% if photo.image.width > 800 %}
-    <p><img src = '{{photo.image.url}}' width='600' /> <br>
-      {% else %}
-      <p><img src = '{{photo.image.url}}' /> <br>
-        {% endif %}
+  .img-box{
+    width: 50%;
+  }
 
-        {{photo.comment}}</p>
-        <p> 방 이름 : {{photo.room_name}}</p>
-        <p> 월 세 : {{photo.room_monthly}}</p>
-        <p> 주인 번호 : {{photo.room_phone}}</p>
-        <p>tv : {{photo.tv}}</p>
-        <p>City : "{{photo.city}}"</p>
+  .img-box img{
+    max-width: 100%;
+    max-height: 100%;
+    width: 100%;
+    height: 100%;
+  }
 
-    <p>파킹:{{photo.parking}}</p>
-    <p>엘레베이터:{{photo.elevator}}</p>
-    <p>동물:{{photo.animal}}</p>
-    <p>에어컨 : {{photo.aricon }}</p>
-    <p>{{photo.washer}}</p>
-    <p>{{photo.freezer}}</p>
-    <p>{{photo.tv}}</p>
-    <p>{{photo.doorlock}}</p>
-    <p>{{photo.bed}}</p>
-    <p>{{photo.city}}</p>
-    <p>{{photo.town}}</p>
-    <p>{{photo.village}}</p>
-    </div>
+  .text-box{
+    width: 50%;
+    padding-left: 30px;
+    margin: 0;
+  }
+
+  .text-box li{
+    display: flex;
+    align-items: center;
+    height: 25%;
+    font-family: 'Jeju Gothic', serif;
+    font-size: 20px;
+  }
+</style>
+<div class="container">
+  <div class="page-header">
+    <h3>상세정보</h3>
   </div>
+
+  <div class="main-info">
+      <div class="img-box">
+          <img src = '{{photo.image.url}}' />
+      </div>
+      <ul class="text-box">
+        <li> 등록자 : {{photo.owner.username}}</li>
+        <li> 방 이름 : {{photo.room_name}} </li>
+        <li> 월 세   : {{photo.room_monthly}} </li>
+        <li> 연락처  : {{photo.room_phone}} </li>
+      </ul>
+  </div>
+
+  <p></p>
+
+      <p>tv : {{photo.tv}}</p>
+      <p>City : "{{photo.city}}"</p>
+
+  <p>파킹:{{photo.parking}}</p>
+  <p>엘레베이터:{{photo.elevator}}</p>
+  <p>동물:{{photo.animal}}</p>
+  <p>에어컨 : {{photo.aricon }}</p>
+  <p>{{photo.washer}}</p>
+  <p>{{photo.freezer}}</p>
+  <p>{{photo.tv}}</p>
+  <p>{{photo.doorlock}}</p>
+  <p>{{photo.bed}}</p>
+  <p>{{photo.city}}</p>
+  <p>{{photo.town}}</p>
+  <p>{{photo.village}}</p>
+  </div>
+</div>
 
 <a href="{% url 'jejudaum:room_list'%}">리스트로 가기</a>
 
 {% include "comments.html" %}
+</div>
+
 
 {%endblock content%}

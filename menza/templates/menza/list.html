@@ -17,7 +17,7 @@
 <div class="test">
   {% for photo in object_list %}
   <div class="panel panel-default" align="center">
-    <div class="panel-heading"><h4><a href="{% url 'menza:detail' pk=photo.pk%}">{{photo.owner.username}}</a></h4></div>
+    <div class="panel-heading"><h4><a href="{% url 'menza:detail' pk=photo.pk%}">{{photo.room_name}}</a></h4></div>
     <div class="panel-body">
       {% if photo.image.width > 800 %}
       <p><img src = '{{photo.image.url}}' />
