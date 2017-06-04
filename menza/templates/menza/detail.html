@@ -11,9 +11,29 @@
     flex-wrap: wrap;
   }
 
-  .img-box{
-    width: 50%;
-  }
+
+
+    @media screen and (max-width: 768px) {
+      .img-box{
+        width: 100%;
+      }
+
+      .text-box{
+        width: 100%;
+        margin: 0;
+      }
+    }
+    @media screen and (min-width: 760px){
+      .img-box{
+        width: 50%;
+      }
+
+      .text-box{
+        width: 50%;
+        padding-left: 30px;
+        margin: 0;
+      }
+    }
 
   .img-box img{
     max-width: 100%;
@@ -22,11 +42,7 @@
     height: 100%;
   }
 
-  .text-box{
-    width: 50%;
-    padding-left: 30px;
-    margin: 0;
-  }
+
 
   .text-box li{
     display: flex;
@@ -48,7 +64,7 @@
       <ul class="text-box">
         <li> 등록자 : {{photo.owner.username}}</li>
         <li> 방 이름 : {{photo.room_name}} </li>
-        <li> 월 세   : {{photo.room_monthly}} </li>
+        <li> 월 세   : {{photo.monthly}} </li>
         <li> 연락처  : {{photo.room_phone}} </li>
       </ul>
   </div>
